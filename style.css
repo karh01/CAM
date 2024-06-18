@@ -1,0 +1,282 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #333;
+  color: #000000;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: #333;
+  color: white;
+}
+/* Logo*/
+.logo {
+  font-size: 1.5em;
+  color: #DFFF00;
+}
+
+.logo img {
+  width: 4em;
+}
+
+/* Navigation */
+nav {
+  position: relative;
+}
+
+nav .hamburger {
+  display: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 0 1em;
+  position: relative;
+}
+
+nav ul li::before {
+  content: "|";
+  position: absolute;
+  left: -0.5em;
+  color: #DFFF00;
+}
+
+nav ul li:first-child::before {
+  content: "";
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 5em 0;
+  background-color: #f4f4f4;
+  background-image: url('AdobeStock_180307543.jpeg');
+  background-size: cover;
+  color: #000;
+  opacity: 100%;
+}
+
+/* Services Section */
+.services {
+  padding: 2em;
+  background-color: #e9e9e9;
+}
+
+.services h2 {
+  text-align: center;
+  color: #000000;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5em; /* Reduce gap size to make the grid items closer */
+  margin-top: 1em;
+}
+
+.service-item {
+  position: relative;
+  display: block;
+  color: white;
+  text-decoration: none;
+  height: 15em; /* Maybe make 200px? */
+}
+
+.service-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* Ensure images fit well within the given height */
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-item:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  font-size: 1em;
+  text-align: center;
+  padding: 1em;
+  color: #FFFFFF;
+}
+
+.service-detail {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+}
+
+.service-detail img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-right: 1em;
+  object-fit: cover;
+}
+
+/* Mission Section */
+.mission {
+  padding: 2em;
+  text-align: center;
+  color: #f4f4f4;
+}
+
+.cta {
+  text-align: center;
+  padding: 2em;
+}
+
+.cta button {
+  background-color: #DFFF00;
+  border: none;
+  padding: 1em 2em;
+  font-size: 1em;
+  cursor: pointer;
+  color: #000000;
+}
+
+/* Galley */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+.gallery-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+.gallery-item .overlay-content {
+  text-align: center;
+}
+.gallery-item .overlay-content h3 {
+  margin: 0;
+  font-size: 20px;
+}
+.gallery-item .overlay-content p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #000;
+  color: white;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 600px) {
+  nav .hamburger {
+      display: block;
+  }
+
+  nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+  }
+
+  nav ul.show {
+      display: flex;
+  }
+
+  nav ul li {
+      margin: 0.5em 0;
+  }
+
+  nav ul li::before {
+      display: none;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr; /* Single column or Double for smaller screens? */
+  }
+
+  .service-item {
+      height: 150px; /* Adjust height for smaller screens */
+  }
+  .service-detail {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-detail img {
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+}
